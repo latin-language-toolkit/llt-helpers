@@ -1,8 +1,9 @@
 module LLT
   module Helpers
     module Metrical
+      QUANTIFIED_CHARS = /[ăāĕēĭīŏōŭūўȳ]/
       def evaluate_metrical_presence(string)
-        @metrical = string && ! string.ascii_only?
+        @metrical = string && string.match(QUANTIFIED_CHARS)
       end
 
       def metrical?
