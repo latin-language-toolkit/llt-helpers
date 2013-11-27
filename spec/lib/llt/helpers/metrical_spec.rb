@@ -31,4 +31,10 @@ describe LLT::Helpers::Metrical do
       dummy.metrical?.should be_true
     end
   end
+
+  describe "#wo_meter" do
+    it "strips all quantifying diacritics of a string" do
+      dummy.wo_meter('fēmĭnīs').should == 'feminis'
+    end
+  end
 end
