@@ -1,6 +1,6 @@
 # LLT::Helpers
 
-TODO: Write a gem description
+Includes various helper modules used by several llt-gems.
 
 ## Installation
 
@@ -15,10 +15,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install llt-helpers
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
