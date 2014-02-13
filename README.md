@@ -1,5 +1,11 @@
 # LLT::Helpers
 
+[![Version](http://allthebadges.io/latin-language-toolkit/llt-helpers/badge_fury.png)](http://allthebadges.io/latin-language-toolkit/llt-helpers/badge_fury)
+[![Dependencies](http://allthebadges.io/latin-language-toolkit/llt-helpers/gemnasium.png)](http://allthebadges.io/latin-language-toolkit/llt-helpers/gemnasium)
+[![Build Status](http://allthebadges.io/latin-language-toolkit/llt-helpers/travis.png)](http://allthebadges.io/latin-language-toolkit/llt-helpers/travis)
+[![Coverage](http://allthebadges.io/latin-language-toolkit/llt-helpers/coveralls.png)](http://allthebadges.io/latin-language-toolkit/llt-helpers/coveralls)
+[![Code Climate](http://allthebadges.io/latin-language-toolkit/llt-helpers/code_climate.png)](http://allthebadges.io/latin-language-toolkit/llt-helpers/code_climate)
+
 Includes various helper modules used by several llt-gems.
 
 ## Installation
