@@ -34,9 +34,9 @@ describe LLT::Helpers::Normalizer do
           norm(args).should == { type: :noun, stem: 'exercit', inflection_class: 4, sexus: :m }
         end
 
-        it "like options, persona or place" do
-          args = { 'options' => true, 'persona' => true, 'place' => true }
-          norm(args).should == { persona: true, place: true, options: true }
+        it "like persona or place" do
+          args = { 'persona' => true, 'place' => true }
+          norm(args).should == { persona: true, place: true }
         end
       end
     end
@@ -48,6 +48,11 @@ describe LLT::Helpers::Normalizer do
 
     it "normalizes a nested options hash as well II" do
       args = { options: { mood: "gerund" } }
+      norm(args).should == { options: { modus: :gerundium } }
+    end
+
+    it "normalizes a nested options hash as well III" do
+      args = { "options" => { mood: "gerund" } }
       norm(args).should == { options: { modus: :gerundium } }
     end
 
