@@ -34,9 +34,9 @@ describe LLT::Helpers::Normalizer do
           norm(args).should == { type: :noun, stem: 'exercit', inflection_class: 4, sexus: :m }
         end
 
-        it "like persona or place" do
-          args = { 'persona' => true, 'place' => true }
-          norm(args).should == { persona: true, place: true }
+        it "like options, persona or place" do
+          args = { 'options' => true, 'persona' => true, 'place' => true }
+          norm(args).should == { persona: true, place: true, options: true }
         end
       end
     end
