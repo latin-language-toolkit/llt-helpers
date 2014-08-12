@@ -28,9 +28,16 @@ describe LLT::Helpers::Normalizer do
         norm(args).should == { tempus: :pr, casus: 4, numerus: 1 }
       end
 
-      it "additionally normalizes the key stem to a symbol, even if there is no key term for it" do
-        args = { 'type' => 'noun', 'stem' => 'exercit', 'iclass' => '4', 'gender' => 'm' }
-        norm(args).should == { type: :noun, stem: 'exercit', inflection_class: 4, sexus: :m }
+      context "additionally normalize some keys without a key term for them" do
+        it "like stem" do
+          args = { 'type' => 'noun', 'stem' => 'exercit', 'iclass' => '4', 'gender' => 'm' }
+          norm(args).should == { type: :noun, stem: 'exercit', inflection_class: 4, sexus: :m }
+        end
+
+        it "like persona or place" do
+          args = { 'persona' => true, 'place' => true }
+          norm(args).should == { persona: true, place: true }
+        end
       end
     end
 

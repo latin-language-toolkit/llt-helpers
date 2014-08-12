@@ -10,7 +10,7 @@ module LLT
             if norm_k
               hash[norm_k] = terminology.value_term_for(norm_k, v)
             else
-              key = (orig_k == 'stem' ? orig_k.to_sym : orig_k)
+              key = (orig_k =~ /^(stem|persona|place)$/ ? orig_k.to_sym : orig_k)
               hash[key] = v
             end
           end
