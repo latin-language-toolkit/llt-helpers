@@ -105,14 +105,21 @@ module LLT
           :deponens
         end
 
-        DEFAULT_FORMAT = { casus:   :numeric,
-                           numerus: :numeric,
-                           tempus:  :abbr,
-                           sexus:   :abbr,
-                           modus:   :abbr,
-                           type:    :full,
-                           genus:   :abbr,
-                           persona: :numeric }
+        def comp
+          :comparatio
+        end
+
+        DEFAULT_FORMAT = {
+          casus:   :numeric,
+          numerus: :numeric,
+          tempus:  :abbr,
+          sexus:   :abbr,
+          modus:   :abbr,
+          type:    :full,
+          genus:   :abbr,
+          persona: :numeric,
+          comp:    :full
+        }
 
         # Convenience Methods
 
@@ -141,7 +148,8 @@ module LLT
                         modus:   [[:ind, :indicativus], [:con, :coniunctivus], [:imp, :imperativum], [:part, :participium], [:inf, :infinitivum], [:gerundium, :gerundium], [:gerundivum, :gerundivum]],
                         type:    [[:noun, :noun], [:adj, :adjective], [:verb, :verb]],#, [:gerundive, :gerundive], [:gerund, :gerund]],
                         genus:   [[:act, :activum], [:pass, :passivum]],
-                        persona: [[:first, :first], [:second, :second], [:third, :third]]
+                        persona: [[:first, :first], [:second, :second], [:third, :third]],
+                        comp:    [[:pos, :positivus], [:comp, :comparativus], [:sup, :superlativus]]
         }
 
         NORM_VALUES.each do |type, getters|
@@ -162,6 +170,7 @@ module LLT
              noe   => %i{ number_of_endings noe },
              nom(:abbr) => %i{ nominative nom },
              deponens => %i{ dep deponens },
+             comp => %i{ comparison comparatio degree comp }
       }
 
       KEY_TABLE = kt.each_with_object({}) do |(norm_term, terms), h|
@@ -203,7 +212,10 @@ module LLT
                      # ...
         noe     => { 1 => %i{ one_ending },
                      2 => %i{ two_endings },
-                     3 => %i{ three_endings }, }
+                     3 => %i{ three_endings }, },
+        comp    => { positivus => %i{ pos positivus positive },
+                     comparativus => %i{ comp comparative comparativus },
+                     superlativus => %i{ sup superlative superlativus } }
       }
 
       VALUE_TABLE = vt.each_with_object({}) do |(key_term, hash), h|

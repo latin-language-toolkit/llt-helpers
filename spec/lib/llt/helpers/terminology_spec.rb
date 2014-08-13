@@ -161,5 +161,13 @@ describe LLT::Helpers::Terminology do
         t.n(:numeric).should == 3
       end
     end
+
+    context "with comparatio/degree" do
+      it "works" do
+        t.pos.should == :positivus
+        t.comp.should == :comparativus
+        t.sup.should == :superlativus
+      end
+    end
   end
 end
