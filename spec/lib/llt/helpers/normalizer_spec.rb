@@ -28,6 +28,11 @@ describe LLT::Helpers::Normalizer do
         norm(args).should == { tempus: :pr, casus: 4, numerus: 1 }
       end
 
+      it "normalizes II" do
+        args = { "comparatio" => "positive" }
+        norm(args).should == { comparatio: :positivus }
+      end
+
       context "additionally normalize some keys without a key term for them" do
         it "like stem" do
           args = { 'type' => 'noun', 'stem' => 'exercit', 'iclass' => '4', 'gender' => 'm' }

@@ -105,7 +105,7 @@ module LLT
           :deponens
         end
 
-        def comp
+        def degree
           :comparatio
         end
 
@@ -118,7 +118,7 @@ module LLT
           type:    :full,
           genus:   :abbr,
           persona: :numeric,
-          comp:    :full
+          degree:  :full
         }
 
         # Convenience Methods
@@ -149,7 +149,7 @@ module LLT
                         type:    [[:noun, :noun], [:adj, :adjective], [:verb, :verb]],#, [:gerundive, :gerundive], [:gerund, :gerund]],
                         genus:   [[:act, :activum], [:pass, :passivum]],
                         persona: [[:first, :first], [:second, :second], [:third, :third]],
-                        comp:    [[:pos, :positivus], [:comp, :comparativus], [:sup, :superlativus]]
+                        degree:  [[:pos, :positivus], [:comp, :comparativus], [:sup, :superlativus]]
         }
 
         NORM_VALUES.each do |type, getters|
@@ -170,7 +170,7 @@ module LLT
              noe   => %i{ number_of_endings noe },
              nom(:abbr) => %i{ nominative nom },
              deponens => %i{ dep deponens },
-             comp => %i{ comparison comparatio degree comp }
+             degree => %i{ comparison comparatio degree comp }
       }
 
       KEY_TABLE = kt.each_with_object({}) do |(norm_term, terms), h|
@@ -213,7 +213,7 @@ module LLT
         noe     => { 1 => %i{ one_ending },
                      2 => %i{ two_endings },
                      3 => %i{ three_endings }, },
-        comp    => { positivus => %i{ pos positivus positive },
+        degree => { positivus => %i{ pos positivus positive },
                      comparativus => %i{ comp comparative comparativus },
                      superlativus => %i{ sup superlative superlativus } }
       }
